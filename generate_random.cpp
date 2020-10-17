@@ -12,7 +12,7 @@ int main(int argc, char * argv[]){
 	int len = atoi(argv[1]);
 	srand(time(NULL));
 	ofstream output_file;
-	output_file.open("unsorted");
+	output_file.open("input.txt");
 	for(int i = 0; i<len; ++i){
 		output_file << rand() % MAX_RAND_INTERVAL << endl;
 	}
