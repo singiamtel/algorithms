@@ -53,3 +53,7 @@ dkms.conf
 
 a.out
 output
+.vscode
+input
+input.txt
+unsorted
