@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class BubbleSort {
 	public ArrayList<BigInteger> array;
+
 	public BubbleSort(){
 		array = new ArrayList<BigInteger>();
 	}
+
 	public static void main (String [ ] args) {
 		try {
 			BubbleSort bubbleSort = new BubbleSort();
@@ -35,6 +37,7 @@ public class BubbleSort {
 		array.set(from, array.get(to));
 		array.set(to, tmp);
 	}
+
 	public void sort() {
 		for(int i = 0; i<array.size(); ++i){
 			for (int j = 0; j < array.size() - i - 1; j++) {
@@ -44,12 +47,14 @@ public class BubbleSort {
 			}
 		}
 	}
+
 	public boolean isSorted(){
 		for (int i = 0; i < array.size() - 1; i++) {
 			if(array.get(i).compareTo(array.get(i+1)) == 1) return false;
 		}
 		return true;
 	}
+
 	public void printArray(){
 		for (int i = 0; i < array.size(); i++) {
 			System.out.println(array.get(i));
