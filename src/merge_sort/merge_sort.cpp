@@ -5,14 +5,23 @@
 using namespace std;
 using namespace std::chrono;
 
-void merge(vector<int> arr, int left, int right, int middle){
-	// Subarrays
-	vector<int> arr1 = {arr.begin(), arr.begin() + middle}, arr2 = {arr.begin() + middle,arr.end()};
+void merge(vector<int>& arr, int left, int middle, int right){
+	// End of first and second subarrays
+	int n1 = middle - left + 1,
+		n2 = right - middle;
 
-	// End of first and second array
-	int n1 = middle - left + 1; 
-	int n2 = right - middle;
-	cout << n1 << " " << n2 << endl;
+	// Create temp arrays 
+	vector<int> arr1, arr2;
+
+	// Copy data to temp arrays
+	for (int i = 0; i < n1; i++)
+	{
+		arr1.push_back(arr[left + i]);
+	}
+	for (int j = 0; j < n2; j++)
+	{
+		arr2.push_back(arr[middle + 1 + j]);
+	}
 
 	int i = 0, j = 0, k = left;
 
@@ -31,22 +40,23 @@ void merge(vector<int> arr, int left, int right, int middle){
 		}
 		++k;
 	}
+	while (i < n1)
+	{
+		arr[k] = arr1[i];
+		++i;
+		++k;
+	}
 	while (j < n2)
 	{
 		arr[k] = arr2[j];
 		++j;
 		++k;
 	}
-	while (i < n1)
-	{
-		arr[k] = arr2[i];
-		++i;
-		++k;
-	}
+	
 }
-void mergeSort(vector<int> arr, int left, int right){
+
+void mergeSort(vector<int>& arr, int left, int right){
 	if(left < right){
-		cout << "HERE" << endl;
         int middle = left + (right - left) / 2; 
 		mergeSort(arr, left, middle);
 		mergeSort(arr, middle + 1, right);
