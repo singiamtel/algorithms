@@ -11,9 +11,6 @@ void test(uint64_t* array, const uint32_t size){
 	// Sort here
 
 	end = clock();
-	for(int i=0; i<size-1; ++i){
-		assert(array[i] <= array[i+1]);
-	}
 	printf("Sorting took %f seconds\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
 
@@ -25,13 +22,13 @@ int main(int argc, char * argv[]){
 	(void)fscanf(input, "%ld", &last);
 	while (!feof(input))
 	{
-		(void)fscanf(input, "%ld", &last);
 		if(size >= filesize){
 			filesize+=30;
-			file_array = realloc(file_array, sizeof(uint64_t) * (filesize));
+			file_array = (uint64_t*)realloc(file_array, sizeof(uint64_t) * (filesize));
 		}
 		file_array[size] = last;
 		size++;
+		(void)fscanf(input, "%ld", &last);
 	}
 	test(file_array, size);
 
