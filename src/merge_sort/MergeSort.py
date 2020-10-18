@@ -41,7 +41,6 @@ def MergeSort(data, l,r):
     if(l < r):
         m = (l+r)/2
         m = int(m)
-        print("left: " + str(l) + "," + "right: " + str(r) + "mid: " + str(m))
         MergeSort(data,l,m)
         MergeSort(data,m+1,r)
         merge(data,l,m,r)
