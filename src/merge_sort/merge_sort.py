@@ -55,6 +55,8 @@ def readArray(path):
 
 if __name__ == "__main__":
 	arr = readArray("input.txt")
+	arr = [int(i) for i in arr]
+
 	start = time.time()
 
 	MergeSort(arr,0,len(arr)-1)
