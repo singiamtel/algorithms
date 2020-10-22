@@ -23,6 +23,7 @@ def bubbleSort(array):
 
 if __name__ == "__main__":
 	arr = readArray("input.txt")
+	arr = [int(i) for i in arr]
 	start = time.time()
 	arr = bubbleSort(arr)
 	end = time.time()
