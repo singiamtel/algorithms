@@ -38,7 +38,5 @@ if __name__ == "__main__":
 
 	end = time.time()
 	print(arr)
-	# for i in range(len(arr)):
-	# 	if arr[i] < arr[i+1]:
-	# 		print("aleayuwoki")
+
 	print("Time spent sorting: " + str(end-start))
